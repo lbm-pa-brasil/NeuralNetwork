@@ -10,11 +10,11 @@ public class FixedBIASNeuron extends AbstractNeuron {
 	
 	@Override
 	public double getYk() {		
-		double sum = 0.0d;
+		double vk = 0.0d;
 		
 		for(int it = 0; it < this.inputs.length; it++) 
-			sum += this.inputs[it] * this.weights[it];		
+			vk += this.inputs[it] * this.weights[it];		
 		
-		return this.tf.getYk(sum + this.inputBIAS * this.biasWeight);
+		return this.tf.getYk(vk + this.inputBIAS * this.biasWeight);
 	}
 }
