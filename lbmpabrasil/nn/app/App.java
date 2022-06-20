@@ -33,7 +33,7 @@ public class App {
 		}
 		
 		{	
-			System.out.println("Testando a performance para 1000000000 de entradas...");	
+			System.out.println("Testando a performance para grandes entradas...");	
 			
 			for(int step = 1; step < 100000000; step *= 10) {
 				double[] weights = new double[step];
