@@ -35,7 +35,7 @@ public class App {
 		{	
 			System.out.println("Testando a performance para grandes entradas...");	
 			
-			for(int step = 1; step < 100000000; step *= 10) {
+			for(int step = 1; step < 1000000000; step *= 10) {
 				double[] weights = new double[step];
 				for(int it = 0; it < step; it++) 
 					weights[it] = (new Random()).nextDouble();
