@@ -8,5 +8,6 @@ public interface NeuralNetwork {
 	 *  q REPRESENTA O NÚMERO DE SAÍDAS.
 	 */
 	public void createNetwork(double[] config);	
-	public void getOutputs();
+	public void setInputs(double[] inputs);
+	public double[] getOutputs();
 }

@@ -1,9 +1,8 @@
 package lbmpabrasil.nn.app;
 
 import java.util.Random;
-
 import javax.swing.SwingUtilities;
-
+import lbmpabrasil.nn.network.*;
 import lbmpabrasil.nn.neuron.*;
 import lbmpabrasil.nn.neuron.transfer.*;
 
@@ -12,7 +11,7 @@ import lbmpabrasil.nn.neuron.transfer.*;
  *  USE ESSA CLASSE COMO PONTO DE PARTIDA.
  */
 public class App {	
-	public void partida() {		
+	public void wakeUp() {		
 		TransferFunction tf = new SigmoidFunction();
 		tf.setAlpha(1.0d);
 		
@@ -33,9 +32,9 @@ public class App {
 		}
 		
 		{	
-			System.out.println("Testando a performance para grandes entradas...");	
+			System.out.println("Testando a performance...");	
 			
-			for(int step = 1; step < 1000000000; step *= 10) {
+			for(int step = 1; step < 100000000; step *= 10) {
 				double[] weights = new double[step];
 				for(int it = 0; it < step; it++) 
 					weights[it] = (new Random()).nextDouble();
@@ -51,14 +50,34 @@ public class App {
 				System.out.println(step + " iterações concluídas em " + (System.currentTimeMillis() - time) + " milissegundos.");
 			}
 		}
+		
+		
+		
+		
+		
+		
+		
+		
+		{
+			NeuralNetwork nn = new ForwardNetworkSingleThread();
+			nn.createNetwork(new double[] {3, 2, 2, 2});
+			
+			
+		}
+		
+		
+		
+		
+		
+		
+		
 	}
 	
 	public static void main(String[] args) {
 	    SwingUtilities.invokeLater(new Runnable() {
 	        public void run() {
-	        	new App() {{ partida(); }};
+	        	new App() {{ wakeUp(); }};
 	        }
 	    });
 	}
-
 }
