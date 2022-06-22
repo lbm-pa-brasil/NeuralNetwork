@@ -12,7 +12,7 @@ public abstract class AbstractNeuronNetwork implements NeuralNetwork {
 		this.inputs = inputs;
 	}
 	
-	protected abstract void process(); // PLACEHOLDER METHOD.
+	protected abstract void process(); // PLACEHOLDER METHOD. NEGÓCIO DELEGADO PARA CLASSE FILHA.
 		
 	public final double[] getOutputs() {
 		this.process();
