@@ -60,7 +60,7 @@ public class App {
 		
 		{
 			NeuralNetwork nn = new ForwardNetworkSingleThread();
-			nn.createNetwork(new double[] {3, 2, 2, 2});
+			nn.createNetwork(tf, new double[] {3, 2, 2, 2});
 			
 			
 		}
