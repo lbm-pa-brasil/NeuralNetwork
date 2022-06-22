@@ -17,15 +17,15 @@ import lbmpabrasil.nn.neuron.transfer.TransferFunction;
  */
 public class App {	
 	public void wakeUp() {		
-		TransferFunction tf = new SigmoidFunction();
-		tf.setAlpha(1.0d);
-		
-		Neuron neuron = new FixedBIASNeuron();
-		neuron.setTransferFunction(tf);
-		
-		((FixedBIASNeuron) neuron).setBIASWeight(1.0d);
-		
 		{
+			TransferFunction tf = new SigmoidFunction();
+			tf.setAlpha(1.0d);
+			
+			Neuron neuron = new FixedBIASNeuron();
+			neuron.setTransferFunction(tf);		
+			
+			((FixedBIASNeuron) neuron).setBIASWeight(1.0d);
+			
 			double[] weights = new double[] {1.0d, 2.0d};
 			neuron.setWeights(weights);
 			
@@ -37,6 +37,14 @@ public class App {
 		}
 		
 		{	
+			TransferFunction tf = new SigmoidFunction();
+			tf.setAlpha(1.0d);
+			
+			Neuron neuron = new FixedBIASNeuron();
+			neuron.setTransferFunction(tf);		
+			
+			((FixedBIASNeuron) neuron).setBIASWeight(1.0d);
+			
 			System.out.println("Testando a performance...");	
 			
 			for(int step = 1; step < 100000000; step *= 10) {
@@ -56,26 +64,28 @@ public class App {
 			}
 		}
 		
-		
-		
-		
-		
-		
-		
-		
 		{
+			TransferFunction tf = new SigmoidFunction();
+			tf.setAlpha(1.0d);
+			
 			NeuralNetwork nn = new ForwardNetworkSingleThread();
-			nn.createNetwork(tf, new double[] {3, 2, 2, 2});
+			nn.createNetwork(tf, new double[] {32 * 32, 2, 2, 2});
+			
+			
+			double[] outputs = nn.getOutputs();
+			
+			
+			for(int it = 0; it < outputs.length; it++)
+				System.out.println(outputs[it]);
+			
+			
+			
+			
+			
+			
 			
 			
 		}
-		
-		
-		
-		
-		
-		
-		
 	}
 	
 	public static void main(String[] args) {
