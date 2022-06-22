@@ -1,10 +1,15 @@
 package lbmpabrasil.nn.app;
 
 import java.util.Random;
+
 import javax.swing.SwingUtilities;
-import lbmpabrasil.nn.network.*;
-import lbmpabrasil.nn.neuron.*;
-import lbmpabrasil.nn.neuron.transfer.*;
+
+import lbmpabrasil.nn.network.ForwardNetworkSingleThread;
+import lbmpabrasil.nn.network.NeuralNetwork;
+import lbmpabrasil.nn.neuron.FixedBIASNeuron;
+import lbmpabrasil.nn.neuron.Neuron;
+import lbmpabrasil.nn.neuron.transfer.SigmoidFunction;
+import lbmpabrasil.nn.neuron.transfer.TransferFunction;
 
 /*
  *  CLASSE App MOSTRA O MODO DE USO TÍPICO. 

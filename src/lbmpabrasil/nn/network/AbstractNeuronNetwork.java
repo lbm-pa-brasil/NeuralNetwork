@@ -3,7 +3,8 @@ package lbmpabrasil.nn.network;
 import java.util.Random;
 import java.util.stream.DoubleStream;
 
-import lbmpabrasil.nn.neuron.*;
+import lbmpabrasil.nn.neuron.FixedBIASNeuron;
+import lbmpabrasil.nn.neuron.Neuron;
 import lbmpabrasil.nn.neuron.transfer.TransferFunction;
 
 public abstract class AbstractNeuronNetwork implements NeuralNetwork {		
@@ -54,16 +55,7 @@ public abstract class AbstractNeuronNetwork implements NeuralNetwork {
 		
 		
 		
-		
-		
-		
-		
-		
-		
-	}
-	
-	
-	
+	}	
 	
 	protected abstract void process(); // PLACEHOLDER METHOD. NEGÓCIO DELEGADO PARA CLASSE FILHA.
 		
