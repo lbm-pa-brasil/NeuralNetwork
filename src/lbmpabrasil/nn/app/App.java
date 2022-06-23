@@ -32,7 +32,7 @@ public class App {
 			double[] inputs = new double[] {1.0d, 2.0d};
 			neuron.setInputs(inputs);
 			
-			System.out.println("Se tudo estiver certo, o valor 0.9975273768433653 deve aparecer no resultado!");
+			System.out.println("All right if 0.9975273768433653:");
 			System.out.println(neuron.getYk());
 		}
 		
@@ -45,7 +45,7 @@ public class App {
 			
 			((FixedBIASNeuron) neuron).setBIASWeight(1.0d);
 			
-			System.out.println("Testando a performance...");	
+			System.out.println("Performance test...");	
 			
 			for(int step = 1; step < 100000000; step *= 10) {
 				double[] weights = new double[step];
@@ -58,9 +58,11 @@ public class App {
 					inputs[it] = (new Random()).nextDouble();
 				neuron.setInputs(inputs);	
 				
-				long time = System.currentTimeMillis();
+				long time = System.currentTimeMillis();				
+				
+				@SuppressWarnings("unused")
 				double output = neuron.getYk();
-				System.out.println(step + " iterações concluídas em " + (System.currentTimeMillis() - time) + " milissegundos.");
+				System.out.println(step + " iterations @ " + (System.currentTimeMillis() - time) + " ms.");
 			}
 		}
 		
@@ -68,23 +70,21 @@ public class App {
 			TransferFunction tf = new SigmoidFunction();
 			tf.setAlpha(1.0d);
 			
+			double[] inputs = new double[64 * 64];
+			for(int it = 0; it < 64 * 64; it++) 
+				inputs[it] = (new Random()).nextDouble();		
+			
 			NeuralNetwork nn = new ForwardNetworkSingleThread();
-			nn.createNetwork(tf, new double[] {32 * 32, 2, 2, 2});
+			nn.createNetwork(tf, new double[] {64 * 64, 32, 32, 1});				
 			
+			nn.setInputs(inputs);
 			
-			double[] outputs = nn.getOutputs();
-			
+			long time = System.currentTimeMillis();			
+			double[] outputs = nn.getOutputs();	
+			System.out.println("Performed in " + (System.currentTimeMillis() - time) + " ms.");
 			
 			for(int it = 0; it < outputs.length; it++)
-				System.out.println(outputs[it]);
-			
-			
-			
-			
-			
-			
-			
-			
+				System.out.println(outputs[it]);			
 		}
 	}
 	

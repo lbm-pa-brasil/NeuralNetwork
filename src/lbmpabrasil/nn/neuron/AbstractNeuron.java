@@ -11,6 +11,10 @@ public abstract class AbstractNeuron implements Neuron {
 		this.inputs = inputs;
 	}
 	
+	public final double[] getInputs() {
+		return this.inputs;
+	}
+	
 	public final void setWeights(double[] weights) {
 		this.weights = weights;
 	}
