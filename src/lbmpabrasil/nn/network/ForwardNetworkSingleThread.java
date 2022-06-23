@@ -8,27 +8,26 @@ public class ForwardNetworkSingleThread extends AbstractNeuronNetwork {
 	protected void process() {				
 		List<Double> yk = new ArrayList<Double>();
 		
-		int fooCounter = 0;
+		int neuronCounter = 0;
 		
 		/*
 		 *  PROCESSA A CAMADA DE ENTRADA. 
 		 */		
 		for(int it = 0; it < (int) this.config[1]; it++) {
-			this.neurons[fooCounter].setInputs(this.inputs);			
-			yk.add(this.neurons[fooCounter].getYk());
-			fooCounter++;
+			this.neurons[neuronCounter].setInputs(this.inputs);			
+			yk.add(this.neurons[neuronCounter].getYk());
+			neuronCounter++;
 		}
 		
 		for(int it1 = 2; it1 < (int) this.config.length; it1++) {
-			double[] ykCopy = yk.stream().mapToDouble(Double::doubleValue).toArray();
-			
+			double[] ykStep = yk.stream().mapToDouble(Double::doubleValue).toArray();			
 			yk.clear();
 			
 			for(int it2 = 0; it2 < (int) this.config[it1]; it2++) {
-				this.neurons[fooCounter].setInputs(ykCopy);
-				yk.add(this.neurons[fooCounter].getYk());
+				this.neurons[neuronCounter].setInputs(ykStep);
+				yk.add(this.neurons[neuronCounter].getYk());
 				
-				fooCounter++;
+				neuronCounter++;
 			}
 		}
 		

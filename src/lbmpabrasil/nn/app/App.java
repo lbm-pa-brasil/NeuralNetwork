@@ -75,16 +75,16 @@ public class App {
 				inputs[it] = (new Random()).nextDouble();		
 			
 			NeuralNetwork nn = new ForwardNetworkSingleThread();
-			nn.createNetwork(tf, new double[] {64 * 64, 32, 32, 1});				
+			nn.createNetwork(tf, new double[] {64 * 64, 32, 32, 32, 1});				
 			
 			nn.setInputs(inputs);
 			
 			long time = System.currentTimeMillis();			
 			double[] outputs = nn.getOutputs();	
-			System.out.println("Performed in " + (System.currentTimeMillis() - time) + " ms.");
+			System.out.println("MultiLayer performed in " + (System.currentTimeMillis() - time) + " ms.");
 			
 			for(int it = 0; it < outputs.length; it++)
-				System.out.println(outputs[it]);			
+				System.out.println(outputs[it]);
 		}
 	}
 	
